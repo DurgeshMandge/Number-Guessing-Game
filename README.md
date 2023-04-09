@@ -15,5 +15,4 @@
     * Giving points based on number of attempts
       * Points Scheme:
          * Attempt 1 to 3 : 5 Points
-         * Attempt 3 or 4 : 3 Points
-         * Attempt 5 : 1 Point
+         * Attempt 4 or 5 : 3 Points
