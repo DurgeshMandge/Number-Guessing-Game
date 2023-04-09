@@ -3,7 +3,7 @@ import java.util.*;
 class GuessNumber{
     public static void main(String[] args) {
 
-        // Initial variables, Messages and input array
+        // Initializing variables, Messages and input array
 
         Scanner sc = new Scanner(System.in);
         int score = 0 ;
