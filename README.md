@@ -6,9 +6,14 @@
 
 * Then computer will tell if the entered number matches the input number or it is less than or grater than generated number.
 
-* The game continues until user guesses the number. We can add more details as : 
+* The game continues until user guesses the number. I have added more details as : 
 
     * Limiting the number of attempts (5)
-    * Adding more rounds
+    * Adding more rounds (Till user wants)
+    * Displaying all the user guesses with the Computer generated number
     * Displaying score
     * Giving points based on number of attempts
+      * Points Scheme:
+         * Attempt 1 to 3 : 5 Points
+         * Attempt 3 or 4 : 3 Points
+         * Attempt 5 : 1 Point
