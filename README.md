@@ -8,7 +8,7 @@
 
 * The game continues until user guesses the number. We can add more details as : 
 
-    * Limiting the number of attempts
+    * Limiting the number of attempts (5)
     * Adding more rounds
     * Displaying score
     * Giving points based on number of attempts
