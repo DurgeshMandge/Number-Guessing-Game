@@ -3,6 +3,7 @@ import java.util.*;
 class GuessNumber{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int score = 0 ;
 
         System.out.println("    _______________--  Guess The Number.  --_______________");
         System.out.println("        You have maximum 5 chances to Guess the number");
@@ -12,73 +13,83 @@ class GuessNumber{
 
         // Generate the random number using Math.random() method and initialise the array of inputs
 
-        int generatedNumber = (int)(Math.random()*100)+1 ;
-        System.out.println(generatedNumber);
         int[] inputs = new int[5] ;
 
-        System.out.println("Enter Your Number. ");
+        int press = 1;
 
-        for (int i =1 ; i<= 5 ; i++)
-        {
-            
-            inputs[i-1] = sc.nextInt();
+        while(press==1){
 
-            if( i!= 5) 
+            int generatedNumber = (int)(Math.random()*100)+1 ;
+            System.out.println(generatedNumber);
+
+            System.out.println("    Enter Your Number. ");
+    
+            for (int i =1 ; i<= 5 ; i++)
             {
-                if ( inputs[i-1] == generatedNumber )
+                
+                inputs[i-1] = sc.nextInt();
+    
+                //for first 4 chances
+
+                if( i!= 5) 
                 {
-                    System.out.println("  WOW Super ! Your Guess is Correct ");
-                    System.exit(0);
+                    if ( inputs[i-1] == generatedNumber )
+                    {
+                        System.out.println("    WOW Super ! Your Guess is Correct ");
+                        score+=1;
+                        break;
+                    }
+    
+                
+                    else
+                    {
+                        if ( inputs[i-1] > generatedNumber ){
+                            System.out.println("    Your Guess is Grater than the Number ... ");
+                            System.out.println("    Try to guess smaller number than " + inputs[i-1] );
+                        }
+    
+                        else {
+                            System.out.println("    Your Guess is Smaller than the Number ... ");
+                            System.out.println("    Try to guess greater number than " + inputs[i-1]);
+                        }
+                    }
                 }
 
-            
+                //for last chance
+
                 else
                 {
-                    if ( inputs[i-1] > generatedNumber ){
-                        System.out.println("Your Guess is Grater than the Number ... ");
-                        System.out.println("Try to guess smaller number than " + inputs[i-1] );
+                    if ( inputs[i-1] == generatedNumber )
+                    {
+                        System.out.println("    Ohhh Great... Your Guess is Correct ");
+                        score+=1;
+                        break;
                     }
+    
+                    //incorrect last guess
+                    else
+                    {
+                        if ( inputs[i-1] > generatedNumber ){
+                            System.out.println("    Your Guess is Grater than the Number ... ");
+                        }
+    
+                        else {
+                            System.out.println("    Your Guess is Smaller than the Number ... ");
+                        }
+    
+                        System.out.println("    ans you Have attempted all 5 available attempts:");System.out.println();
+                        System.out.println("    --------The Generated number was " + generatedNumber + " and Your Guesses are :--------");
+                        System.out.println("                " + Arrays.toString(inputs));System.out.println();
 
-                    else {
-                        System.out.println("Your Guess is Smaller than the Number ... ");
-                        System.out.println("Try to guess greater number than " + inputs[i-1]);
-                    }
-                }
-            }else 
-            {
-                if ( inputs[i-1] == generatedNumber )
-                {
-                    System.out.println("  Ohhh Great... Your Guess is Correct ");
-                    System.exit(0);
-                }
-
-            
-                else
-                {
-                    if ( inputs[i-1] > generatedNumber ){
-                        System.out.println("Your Guess is Grater than the Number ... ");
-                    }
-
-                    else {
-                        System.out.println("Your Guess is Smaller than the Number ... ");
-                    }
-
-                    System.out.println("You Have attempted all 5 available attempts:");
-                    System.out.println("Press 1 to retry, Press 2 to exit");
-                    int press = sc.nextInt();
-                    
-                    if( press == 1 ){
-                        //retry
-                    }else if( press == 2 ){
-                        //exit
-                    }else{
-                        System.out.println("Enter either 1 or 2");
                     }
                 }
             }
             System.out.println();
+            System.out.println("    Your Score is : " + score);
+            System.out.println("    Press 1 to Retry, Press any number to Exit");
+            press = sc.nextInt();
         }
-
-
+        System.out.println("    Number Guessing Game Exited.");
+        System.out.println("    Thank You");
     }
 }
